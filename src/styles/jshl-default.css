@@ -1,0 +1,31 @@
+.jshl-boolean {
+    color: purple;
+}
+
+.jshl-bracket {
+    color: red;
+}
+
+.jshl-identifier {
+    color: black;
+}
+
+.jshl-null {
+    color: purple;
+}
+
+.jshl-number {
+    color: blue;
+}
+
+.jshl-separator {
+    color: red;
+}
+
+.jshl-string {
+    color: blue;
+}
+
+.jshl-whitespace {
+    color: black;
+}
