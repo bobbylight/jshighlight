@@ -3,20 +3,25 @@
         "allowJs": false,
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
-        "declaration": false,
+        "declaration": true,
         "forceConsistentCasingInFileNames": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
-        //"noUnusedLocals": true,
+        "noUnusedLocals": true,
         //"noUnusedParameters": true,
         "preserveConstEnums": true,
         "removeComments": false,
         "strictNullChecks": true,
 
-        "target": "es5",
+        //"moduleResolution": "node",
         "module": "commonjs",
+        "target": "es5",
+        "outDir": "lib/",
         "sourceMap": true,
-
-        "outDir": "dist"
-    }
+        "diagnostics": true
+    },
+    "include": [
+        "src/app/**/*.ts",
+        "src/demo-app/*.ts"
+    ]
 }

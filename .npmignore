@@ -1,0 +1,16 @@
+.idea/
+coverage/
+doc/
+src/
+.editorconfig
+.gitattributes
+.npmignore
+.travis.yml
+jshighlight.iml
+karma.conf.js
+npm-debug.log
+test-main.js
+Thumbs.db
+tsconfig.json
+tslint.json
+jshighlight-*.tgz

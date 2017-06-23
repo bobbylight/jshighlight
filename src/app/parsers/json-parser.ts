@@ -29,8 +29,6 @@ export class JsonParser implements Parser {
 
     private getOtherToken(): Token {
 
-        console.log('. new identifier');
-
         while (this.index < this.code.length) {
 
             let ch: string = this.code.charAt(this.index++);

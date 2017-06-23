@@ -11,9 +11,7 @@ const update: EventListener = () => {
     const json: string = textArea.value;
 
     const parser: Parser = new JsonParser();
-    const markup: string = Highlighter.highlight(parser, json);
-
-    document.getElementById('beautified')!.innerHTML = markup;
+    document.getElementById('beautified')!.innerHTML = Highlighter.highlight(parser, json);
 };
 
 update(<any>null);
