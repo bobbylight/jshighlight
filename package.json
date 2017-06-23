@@ -1,11 +1,11 @@
 {
   "name": "jshighlight",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Synchronously highlight code in the browser.",
   "main": "/",
   "scripts": {
     "clean": "rimraf demo coverage lib temp",
-    "build": "tsc && rimraf lib && mkdir lib && cp -R temp/app/* ./lib/",
+    "build": "tsc && rimraf lib && mkdir lib && cp -R temp/app/* ./lib/ && cp src/app/index.d.ts ./lib/",
     "watch": "cross-env NODE_ENV=dev webpack --config webpack/webpack.config.js --watch",
     "test": "cross-env NODE_ENV=test karma start karma.unit.js",
     "coverage": "cross-env NODE_ENV=test karma start karma.coverage.js"
@@ -19,7 +19,8 @@
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "files": [
-    "lib/"
+    "lib/",
+    "src/styles/"
   ],
   "dependencies": {},
   "devDependencies": {

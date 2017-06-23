@@ -1,6 +1,6 @@
-import {Parser, Token} from './typedefs';
+import {Highlighter, Parser, Token} from './index';
 
-const highlighter: any = {
+const highlighter: Highlighter = {
 
     highlight: (parser: Parser, code: string): string => {
 

@@ -1,6 +1,6 @@
 import Highlighter from '../app/highlighter';
 import {JsonParser} from '../app/parsers/json-parser';
-import {Parser} from '../app/typedefs';
+import {Parser} from '../app/index';
 
 import 'jshl-default.css';
 

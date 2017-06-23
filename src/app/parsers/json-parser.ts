@@ -1,4 +1,4 @@
-import {Parser, Token, TokenType} from '../typedefs';
+import {Parser, Token, TokenType} from '../index';
 
 type JsonParserState = 'INITIAL' | 'KEY' | 'VALUE';
 
