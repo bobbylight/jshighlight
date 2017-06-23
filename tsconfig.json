@@ -16,7 +16,7 @@
         //"moduleResolution": "node",
         "module": "commonjs",
         "target": "es5",
-        "outDir": "lib/",
+        "outDir": "temp/",
         "sourceMap": true,
         "diagnostics": true
     },

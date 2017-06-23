@@ -40,7 +40,7 @@ module.exports = [{
         // }),
         // Simply copies the files over
         new CopyWebpackPlugin([
-            { from: '*.html', context: 'src/demo' }
+            { from: '*.html', context: 'src/demo-app' }
         ]),
         new webpack.ProvidePlugin({
         })

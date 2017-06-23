@@ -5,4 +5,4 @@ demo/
 lib/
 npm-debug.log
 jshighlight-*.tgz
-
+temp/
