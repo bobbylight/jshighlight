@@ -1,27 +1,29 @@
 {
-    "compilerOptions": {
-        "allowJs": false,
-        "allowUnreachableCode": false,
-        "allowUnusedLabels": false,
-        "declaration": true,
-        "forceConsistentCasingInFileNames": true,
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        "noUnusedLocals": true,
-        //"noUnusedParameters": true,
-        "preserveConstEnums": true,
-        "removeComments": false,
-        "strictNullChecks": true,
+  "compilerOptions": {
 
-        //"moduleResolution": "node",
-        "module": "commonjs",
-        "target": "es5",
-        "outDir": "temp/",
-        "sourceMap": true,
-        "diagnostics": true
-    },
-    "include": [
-        "src/app/**/*.ts",
-        "src/demo-app/*.ts"
-    ]
+    "allowJs": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "newLine": "LF",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    //"noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "strictNullChecks": true,
+
+    //"moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es5",
+    "outDir": "temp/",
+    "sourceMap": true,
+    "diagnostics": true
+  },
+  "include": [
+    "src/app/**/*.ts",
+    "src/demo-app/*.ts"
+  ]
 }

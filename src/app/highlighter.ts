@@ -1,4 +1,4 @@
-import {Highlighter, Parser, Token} from './index';
+import { Highlighter, Parser, Token } from './index';
 
 const highlighter: Highlighter = {
 
@@ -10,7 +10,7 @@ const highlighter: Highlighter = {
 
         let token: Token | null;
 
-        while ((token = parser.nextToken()) != null) {
+        while (token = parser.nextToken()) {
             const className: string = `jshl-${token.type.toLowerCase()}`;
             markup += `<span class="${className}">${token.lexeme}</span>`;
         }

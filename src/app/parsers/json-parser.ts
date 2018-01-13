@@ -1,15 +1,11 @@
-import {Parser, Token, TokenType} from '../index';
+import { Parser, Token, TokenType } from '../index';
 
-type JsonParserState = 'INITIAL' | 'KEY' | 'VALUE';
-
-export class JsonParser implements Parser {
-
-    private state: JsonParserState;
+export default class JsonParser implements Parser {
 
     private code: string;
     private index: number;
     private buf: string;
-    private keywordMap: { [ key: string ]: TokenType };
+    private readonly keywordMap: { [ key: string ]: TokenType };
 
     constructor() {
 
@@ -27,14 +23,15 @@ export class JsonParser implements Parser {
         return tokenType ? tokenType : 'IDENTIFIER';
     }
 
-    private getOtherToken(): Token {
+    private getOtherToken(firstChar: string): Token {
+
+        this.buf = firstChar;
 
         while (this.index < this.code.length) {
 
-            let ch: string = this.code.charAt(this.index++);
+            const ch: string = this.code.charAt(this.index++);
 
             if (ch === '"' ||
-                    JsonParser.isNumberStartChar(ch) ||
                     JsonParser.isWhitespaceChar(ch) ||
                     JsonParser.isBracket(ch) ||
                     JsonParser.isSeparatorChar(ch)) {
@@ -56,7 +53,7 @@ export class JsonParser implements Parser {
 
         while (this.index < this.code.length) {
 
-            let ch: string = this.code.charAt(this.index++);
+            const ch: string = this.code.charAt(this.index++);
 
             switch (ch) {
 
@@ -172,13 +169,11 @@ export class JsonParser implements Parser {
             return { lexeme: ch, type: 'SEPARATOR' };
         }
 
-        this.index--;
-        return this.getOtherToken();
+        return this.getOtherToken(ch);
     }
 
     reset(code: string) {
         this.code = code;
-        this.state = 'INITIAL';
         this.index = 0;
         this.buf = '';
     }

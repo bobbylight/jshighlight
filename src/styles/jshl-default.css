@@ -3,7 +3,7 @@
 }
 
 .jshl-bracket {
-    color: red;
+    color: #ab6533;
 }
 
 .jshl-identifier {
@@ -19,11 +19,11 @@
 }
 
 .jshl-separator {
-    color: red;
+    color: #333333;
 }
 
 .jshl-string {
-    color: blue;
+    color: #008000;
 }
 
 .jshl-whitespace {

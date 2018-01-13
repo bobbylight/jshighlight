@@ -1,5 +1,5 @@
 /**
- * A <code>Highlighter</code> is the main exported object of the library.
+ * A <code>highlighter</code> is the main exported object of the library.
  */
 export interface Highlighter {
 
