@@ -93,6 +93,10 @@ export default class JsonParser implements Parser {
             ch === '}';
     }
 
+    private static isNewlineChar(ch: string): boolean {
+        return ch === '\r' || ch === '\n';
+    }
+
     private static isNumberChar(ch: string): boolean {
         return (ch >= '0' && ch <= '9') || ch === '-' || ch === '.' || ch === 'e' || ch === 'E';
     }
@@ -106,12 +110,7 @@ export default class JsonParser implements Parser {
     }
 
     private static isWhitespaceChar(ch: string): boolean {
-
-        return ch === ' ' ||
-                ch === '\r' ||
-                ch === '\n' ||
-                ch === '\t' ||
-                ch === '\f';
+        return ch === ' ' || ch === '\t' || ch === '\f';
     }
 
     nextToken(): Token | null {
@@ -125,6 +124,21 @@ export default class JsonParser implements Parser {
 
         if (JsonParser.isBracket(ch)) {
             return { lexeme: ch, type: 'BRACKET' };
+        }
+
+        else if (JsonParser.isNewlineChar(ch)) {
+            this.buf = ch;
+            while (this.index < this.code.length && this.buf[this.buf.length - 1] !== '\n') {
+                ch = this.code.charAt(this.index);
+                if (JsonParser.isNewlineChar(ch)) {
+                    this.buf += ch;
+                    this.index++;
+                }
+                else {
+                    break;
+                }
+            }
+            return { lexeme: this.buf, type: 'NEWLINE' };
         }
 
         else if (JsonParser.isWhitespaceChar(ch)) {

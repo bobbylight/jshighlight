@@ -63,7 +63,6 @@ describe('json-parser', () => {
 
         const parser: JsonParser = new JsonParser();
         const json: string = '"His name is \\"Ted\\"';
-
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '"His name is \"Ted\"', 'STRING');
@@ -73,7 +72,6 @@ describe('json-parser', () => {
 
         const parser: JsonParser = new JsonParser();
         const json: string = '"His name is \\Ted"';
-
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '"His name is \\Ted"', 'STRING');
@@ -83,7 +81,6 @@ describe('json-parser', () => {
 
         const parser: JsonParser = new JsonParser();
         const json: string = '"His name is \\';
-
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '"His name is \\', 'STRING');
@@ -93,7 +90,6 @@ describe('json-parser', () => {
 
         const parser: JsonParser = new JsonParser();
         const json: string = '-42';
-
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '-42', 'NUMBER');
@@ -103,7 +99,6 @@ describe('json-parser', () => {
 
         const parser: JsonParser = new JsonParser();
         const json: string = '17.152';
-
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '17.152', 'NUMBER');
@@ -113,9 +108,55 @@ describe('json-parser', () => {
 
         const parser: JsonParser = new JsonParser();
         const json: string = '     \t   ';
-
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '     \t   ', 'WHITESPACE');
+    });
+
+    it('CRLF is recognized as a single newline token', () => {
+
+        const parser: JsonParser = new JsonParser();
+        const json: string = '\r\n';
+        parser.reset(json);
+
+        assertNextToken(parser.nextToken(), '\r\n', 'NEWLINE');
+    });
+
+    it('LF is recognized as a newline token', () => {
+
+        const parser: JsonParser = new JsonParser();
+        const json: string = '\n';
+        parser.reset(json);
+
+        assertNextToken(parser.nextToken(), '\n', 'NEWLINE');
+    });
+
+    it("CRCRLF is recognized as a newline token (multiple CR's coerced into one)", () => {
+
+        const parser: JsonParser = new JsonParser();
+        const json: string = '\r\r\n';
+        parser.reset(json);
+
+        assertNextToken(parser.nextToken(), '\r\r\n', 'NEWLINE');
+    });
+
+    it('LFLF is recognized as two separate newlines', () => {
+
+        const parser: JsonParser = new JsonParser();
+        const json: string = '\n\n';
+        parser.reset(json);
+
+        assertNextToken(parser.nextToken(), '\n', 'NEWLINE');
+        assertNextToken(parser.nextToken(), '\n', 'NEWLINE');
+    });
+
+    it('properly transitions from non-LF line ending to next token', () => {
+
+        const parser: JsonParser = new JsonParser();
+        const json: string = '\r{';
+        parser.reset(json);
+
+        assertNextToken(parser.nextToken(), '\r', 'NEWLINE');
+        assertNextToken(parser.nextToken(), '{', 'BRACKET');
     });
 });

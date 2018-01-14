@@ -46,6 +46,7 @@ type TokenType =
     'BOOLEAN' |
     'BRACKET' |
     'IDENTIFIER' |
+    'NEWLINE' |
     'NULL' |
     'NUMBER' |
     'SEPARATOR' |
