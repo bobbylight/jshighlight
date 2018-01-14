@@ -25,12 +25,12 @@ npm test         # Tests only
 npm run coverage # Generates coverage report
 ```
 
-Running the tests generates a coverage report:
+The generated coverage report lives here:
 ```sh
 open coverage/index.html
 ```
 
-Using the library in a TypeScript application:
+## Consuming the library in a TypeScript application
 ```typescript
 import highlighter from 'jshighlight/lib/highlighter';
 import JsonParser from 'jshighlight/lib/parsers/json-parser';
