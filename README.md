@@ -1,8 +1,7 @@
 # jsHighlight - Simple syntax highlighting for webapps
-[![Build Status](https://travis-ci.org/bobbylight/jshighlight.svg?branch=master)](https://travis-ci.org/bobbylight/jshighlight)
+![Build](https://github.com/bobbylight/jshighlight/actions/workflows/build.yml/badge.svg)
 [![Dependency Status](https://img.shields.io/david/bobbylight/jshighlight.svg)](https://david-dm.org/bobbylight/jshighlight)
 [![Dev Dependency Status](https://img.shields.io/david/dev/bobbylight/jshighlight.svg)](https://david-dm.org/bobbylight/jshighlight?type=dev)
-[![Coverage Status](https://coveralls.io/repos/github/bobbylight/jshighlight/badge.svg?branch=master)](https://coveralls.io/github/bobbylight/jshighlight?branch=master)
 
 I built this after highlight.js being too heavy, and requiring a custom build to
 remove unneeded parsers, and other highlighting packages having similar issues.
