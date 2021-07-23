@@ -19,8 +19,8 @@ export default class JsonParser implements Parser {
     }
 
     private determineOtherTokenType(lexeme: string): TokenType {
-        const tokenType: TokenType = this.keywordMap[lexeme];
-        return tokenType ? tokenType : 'IDENTIFIER';
+        const tokenType: TokenType | undefined = this.keywordMap[lexeme];
+        return tokenType ?? 'IDENTIFIER';
     }
 
     private getOtherToken(firstChar: string): Token {

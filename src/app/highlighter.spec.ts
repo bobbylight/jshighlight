@@ -1,6 +1,5 @@
 import highlighter from './highlighter';
 import JsonParser from './parsers/json-parser';
-import * as chai from 'chai';
 
 describe('highlighter', () => {
 
@@ -10,7 +9,7 @@ describe('highlighter', () => {
         const json: string = '{ value: 5 }';
 
         const code: string = highlighter.highlight(parser, json);
-        chai.assert.equal(code, '<div class="jshl-line">' +
+        expect(code).toEqual('<div class="jshl-line">' +
             '<span class="jshl-bracket">{</span>' +
             '<span class="jshl-whitespace"> </span>' +
             '<span class="jshl-identifier">value</span>' +
@@ -28,7 +27,7 @@ describe('highlighter', () => {
         const json: string = '{"a":"b",\n"c":"d"}';
 
         const code: string = highlighter.highlight(parser, json);
-        chai.assert.equal(code, '<div class="jshl-line">' +
+        expect(code).toEqual('<div class="jshl-line">' +
             '<span class="jshl-bracket">{</span>' +
             '<span class="jshl-string">"a"</span>' +
             '<span class="jshl-separator">:</span>' +

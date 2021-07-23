@@ -1,12 +1,11 @@
 import JsonParser from './json-parser';
-import * as chai from 'chai';
 import { Token, TokenType } from '../index';
 
 const assertNextToken: (token: Token | null, lexeme: string, type: TokenType) => void =
         (token: Token, lexeme: string, type: TokenType) => {
-    chai.assert.isNotNull(token);
-    chai.assert.equal(token.lexeme, lexeme);
-    chai.assert.equal(token.type, type);
+    expect(token).toBeDefined();
+    expect(token.lexeme).toEqual(lexeme);
+    expect(token.type).toEqual(type);
 };
 
 describe('json-parser', () => {
@@ -56,7 +55,7 @@ describe('json-parser', () => {
         assertNextToken(parser.nextToken(), ' ', 'WHITESPACE');
 
         assertNextToken(parser.nextToken(), '}', 'BRACKET');
-        chai.assert.isNull(parser.nextToken());
+        expect(parser.nextToken()).toBeNull();
     });
 
     it('strings should support escaped double quotes', () => {
