@@ -6,17 +6,6 @@ const webpack = require('webpack');
 const devBuild = process.env.NODE_ENV === 'dev';
 console.log(`Starting webpack build with NODE_ENV: ${process.env.NODE_ENV}`);
 
-// Loaders specific to compiling
-loaders.push({
-    test: /\.tsx?$/,
-    enforce: 'pre',
-    loader: 'tslint-loader',
-    exclude: /node_modules/,
-    options: {
-        typeCheck: true
-    }
-});
-
 module.exports = [{
     entry: {
         demo: [ path.resolve('./src/demo-app/index.ts') ]

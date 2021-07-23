@@ -3,6 +3,7 @@ coverage/
 doc/
 src/
 .editorconfig
+.eslintrc.js
 .gitattributes
 .npmignore
 .travis.yml
@@ -12,5 +13,4 @@ npm-debug.log
 test-main.js
 Thumbs.db
 tsconfig.json
-tslint.json
 jshighlight-*.tgz
