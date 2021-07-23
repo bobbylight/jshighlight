@@ -1,6 +1,7 @@
 # jsHighlight - Simple syntax highlighting for webapps
 ![Build](https://github.com/bobbylight/jshighlight/actions/workflows/build.yml/badge.svg)
 ![CodeQL](https://github.com/bobbylight/jshighlight/actions/workflows/codeql-analysis.yml/badge.svg)
+[![codecov](https://codecov.io/gh/bobbylight/jshighlight/branch/master/graph/badge.svg?token=1AzwBREy4R)](https://codecov.io/gh/bobbylight/jshighlight)
 [![Dependency Status](https://img.shields.io/david/bobbylight/jshighlight.svg)](https://david-dm.org/bobbylight/jshighlight)
 [![Dev Dependency Status](https://img.shields.io/david/dev/bobbylight/jshighlight.svg)](https://david-dm.org/bobbylight/jshighlight?type=dev)
 

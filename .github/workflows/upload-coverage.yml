@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  upload-coverage:
 
     runs-on: ubuntu-latest
 
