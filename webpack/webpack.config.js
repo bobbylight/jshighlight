@@ -33,12 +33,6 @@ module.exports = [{
         loaders: loaders
     },
     plugins: [
-        // new webpack.optimize.CommonsChunkPlugin({ names: [ 'gtp', 'editorVendor' ] }),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'manifest',
-        //     minChunks: Infinity
-        // }),
-        // Simply copies the files over
         new CopyWebpackPlugin([
             { from: '*.html', context: 'src/demo-app' }
         ]),

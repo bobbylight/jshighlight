@@ -14,7 +14,7 @@ remove unneeded parsers, and other highlighting packages having similar issues.
 git clone git@github.com/github.com/bobbylight/jshighlight.git
 cd jshighlight
 npm install
-npm run build   # Compiles source into lib/
+npm run build   # Compiles source and builds the library into lib/
 npm run watch   # Compiles demo app into demo/ and watches for changes
 ```
 
