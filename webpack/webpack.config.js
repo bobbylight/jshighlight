@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 const devBuild = process.env.NODE_ENV === 'dev';
+console.log(`Starting webpack build with NODE_ENV: ${process.env.NODE_ENV}`);
 
 // Loaders specific to compiling
 loaders.push({
@@ -28,19 +29,16 @@ module.exports = [{
         extensions: [ '.ts', '.tsx', '.js', '.json', '.css' ],
         modules: [ 'src/app', 'src/demo-app', 'src/styles', 'node_modules' ]
     },
-    devtool: 'source-map', //devBuild ? 'cheap-eval-source-map' : 'source-map',
+    mode: devBuild ? 'development' : 'production',
+    devtool: 'source-map', //devBuild ? 'source-map' : undefined,
     module: {
-        loaders: loaders
+        rules: loaders
     },
     plugins: [
-        new CopyWebpackPlugin([
-            { from: '*.html', context: 'src/demo-app' }
-        ]),
-        new webpack.ProvidePlugin({
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: '*.html', context: 'src/demo-app' }
+            ]
         })
     ]
 }];
-
-if (!devBuild) {
-    module.exports[0].plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}));
-}
