@@ -4,18 +4,19 @@ const highlighter: Highlighter = {
 
     highlight: (parser: Parser, code: string): string => {
 
-        let markup: string = '<div class="jshl-line">';
+        let markup = '<div class="jshl-line">';
 
         parser.reset(code);
 
         let token: Token | null;
 
+        // eslint-disable-next-line no-cond-assign
         while (token = parser.nextToken()) {
             if (token.type === 'NEWLINE') {
                 markup += '</div><div class="jshl-line">';
             }
             else {
-                const className: string = `jshl-${token.type.toLowerCase()}`;
+                const className = `jshl-${token.type.toLowerCase()}`;
                 markup += `<span class="${className}">${token.lexeme}</span>`;
             }
         }

@@ -14,7 +14,7 @@ describe('json-parser', () => {
     it('parser() happy path, all token types', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '{ number: 5, boolean: true, boolean2: false, string: "hello", nullValue: null }';
+        const json = '{ number: 5, boolean: true, boolean2: false, string: "hello", nullValue: null }';
 
         parser.reset(json);
 
@@ -62,16 +62,16 @@ describe('json-parser', () => {
     it('strings should support escaped double quotes', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '"His name is \\"Ted\\"';
+        const json = '"His name is \\"Ted\\"';
         parser.reset(json);
 
-        assertNextToken(parser.nextToken(), '"His name is \"Ted\"', 'STRING');
+        assertNextToken(parser.nextToken(), '"His name is "Ted"', 'STRING');
     });
 
     it('strings should support escaped random chars', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '"His name is \\Ted"';
+        const json = '"His name is \\Ted"';
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '"His name is \\Ted"', 'STRING');
@@ -80,7 +80,7 @@ describe('json-parser', () => {
     it('strings unterminated and ending with \\ are rendered as best as possible', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '"His name is \\';
+        const json = '"His name is \\';
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '"His name is \\', 'STRING');
@@ -89,7 +89,7 @@ describe('json-parser', () => {
     it('numbers can be negative', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '-42';
+        const json = '-42';
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '-42', 'NUMBER');
@@ -98,7 +98,7 @@ describe('json-parser', () => {
     it('numbers can have decimal places', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '17.152';
+        const json = '17.152';
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '17.152', 'NUMBER');
@@ -107,7 +107,7 @@ describe('json-parser', () => {
     it('multiple adjacent whitespace chars are one token', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '     \t   ';
+        const json = '     \t   ';
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '     \t   ', 'WHITESPACE');
@@ -116,7 +116,7 @@ describe('json-parser', () => {
     it('CRLF is recognized as a single newline token', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '\r\n';
+        const json = '\r\n';
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '\r\n', 'NEWLINE');
@@ -125,7 +125,7 @@ describe('json-parser', () => {
     it('LF is recognized as a newline token', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '\n';
+        const json = '\n';
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '\n', 'NEWLINE');
@@ -134,7 +134,7 @@ describe('json-parser', () => {
     it("CRCRLF is recognized as a newline token (multiple CR's coerced into one)", () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '\r\r\n';
+        const json = '\r\r\n';
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '\r\r\n', 'NEWLINE');
@@ -143,7 +143,7 @@ describe('json-parser', () => {
     it('LFLF is recognized as two separate newlines', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '\n\n';
+        const json = '\n\n';
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '\n', 'NEWLINE');
@@ -153,7 +153,7 @@ describe('json-parser', () => {
     it('properly transitions from non-LF line ending to next token', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '\r{';
+        const json = '\r{';
         parser.reset(json);
 
         assertNextToken(parser.nextToken(), '\r', 'NEWLINE');

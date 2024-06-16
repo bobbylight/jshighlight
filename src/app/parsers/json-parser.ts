@@ -5,7 +5,7 @@ export default class JsonParser implements Parser {
     private code: string;
     private index: number;
     private buf: string;
-    private readonly keywordMap: { [ key: string ]: TokenType };
+    private readonly keywordMap: Record<string, TokenType>;
 
     constructor() {
 
@@ -47,7 +47,7 @@ export default class JsonParser implements Parser {
 
     private getStringLexeme(): string {
 
-        let prevEscape: boolean = false;
+        let prevEscape = false;
 
         this.buf += '"'; // Previously read in
 

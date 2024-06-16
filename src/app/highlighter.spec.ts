@@ -7,7 +7,7 @@ describe('highlighter', () => {
     it('highlight() happy path, single line', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '{ value: 5 }';
+        const json = '{ value: 5 }';
 
         const code: string = highlighter.highlight(parser, json);
         expect(code).toEqual('<div class="jshl-line">' +
@@ -25,7 +25,7 @@ describe('highlighter', () => {
     it('highlight() happy path, multiple lines', () => {
 
         const parser: JsonParser = new JsonParser();
-        const json: string = '{"a":"b",\n"c":"d"}';
+        const json = '{"a":"b",\n"c":"d"}';
 
         const code: string = highlighter.highlight(parser, json);
         expect(code).toEqual('<div class="jshl-line">' +
