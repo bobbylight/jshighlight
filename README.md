@@ -13,7 +13,7 @@ git clone git@github.com/github.com/bobbylight/jshighlight.git
 cd jshighlight
 npm install
 npm run build   # Compiles source and builds the library into lib/
-npm run watch   # Compiles demo app into demo/ and watches for changes
+npm run dev     # Runs a demo app and watches for changes
 ```
 
 The demo application will be hosted at [file://path/to/jshilight/demo/index.html]().
