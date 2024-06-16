@@ -5,9 +5,9 @@
   "main": "./lib/index.js",
   "scripts": {
     "clean": "rm -fr lib",
-    "build": "tsc && rimraf lib && mkdir lib && rm -f temp/app/*.map temp/app/parsers/*.map && cp -R temp/app/* lib/ && rm -f lib/*.spec.* lib/parsers/*.spec.* && cp src/app/index.d.ts lib/",
+    "build": "rm -fr .temp && tsc && rm -fr lib && mkdir lib && rm -f .temp/app/*.map temp/app/parsers/*.map && cp -R .temp/app/* lib/ && rm -f lib/*.spec.* lib/parsers/*.spec.* && cp src/app/index.d.ts lib/",
     "dev": "vite serve",
-    "test": "jest",
+    "test": "vitest",
     "coverage": "jest --coverage",
     "lint": "eslint --ext .ts src/"
   },
@@ -24,12 +24,11 @@
   ],
   "type": "module",
   "devDependencies": {
-    "@types/jest": "27.4.0",
     "@typescript-eslint/eslint-plugin": "5.10.1",
     "@typescript-eslint/parser": "5.10.1",
     "eslint": "8.7.0",
-    "jest": "27.4.7",
     "typescript": "5.4.5",
-    "vite": "5.3.1"
+    "vite": "5.3.1",
+    "vitest": "1.6.0"
   }
 }

@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import JsonParser from './json-parser';
 import { Token, TokenType } from '../index';
 

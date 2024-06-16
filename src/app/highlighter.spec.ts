@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import highlighter from './highlighter';
 import JsonParser from './parsers/json-parser';
 

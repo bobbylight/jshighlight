@@ -5,5 +5,5 @@ demo/
 lib/
 npm-debug.log
 jshighlight-*.tgz
-temp/
+.temp/
 .nyc_output/
