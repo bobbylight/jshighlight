@@ -17,15 +17,14 @@
     "removeComments": false,
     "strictNullChecks": true,
 
-    //"moduleResolution": "node",
-    "module": "commonjs",
-    "target": "es5",
+    "moduleResolution": "bundler",
+    "module": "ES6",
+    "target": "es6",
     "outDir": "temp/",
     "sourceMap": true,
     "diagnostics": true
   },
   "include": [
-    "src/app/**/*.ts",
-    "src/demo-app/*.ts"
+    "src/**/*.ts"
   ]
 }
