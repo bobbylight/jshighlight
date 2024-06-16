@@ -9,5 +9,10 @@ export default defineConfig({
             "@": path.resolve(__dirname, "./src"),
         },
     },
+    test: {
+        coverage: {
+            include: ['src/app/**/*.ts'],
+        },
+    },
 })
 

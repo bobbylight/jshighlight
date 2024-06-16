@@ -8,7 +8,7 @@
     "build": "rm -fr .temp && tsc && rm -fr lib && mkdir lib && rm -f .temp/app/*.map temp/app/parsers/*.map && cp -R .temp/app/* lib/ && rm -f lib/*.spec.* lib/parsers/*.spec.* && cp src/app/index.d.ts lib/",
     "dev": "vite serve",
     "test": "vitest",
-    "coverage": "jest --coverage",
+    "coverage": "vitest --coverage",
     "lint": "eslint src/"
   },
   "author": "Robert Futrell <robert.e.futrell@gmail.com>",
@@ -27,6 +27,7 @@
     "@eslint/js": "9.5.0",
     "@types/node": "20.14.2",
     "@typescript-eslint/parser": "8.0.0-alpha.30",
+    "@vitest/coverage-v8": "1.6.0",
     "eslint": "9.4.0",
     "typescript": "5.4.5",
     "typescript-eslint": "8.0.0-alpha.30",
