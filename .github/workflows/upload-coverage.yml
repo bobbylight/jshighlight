@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -31,5 +31,6 @@ jobs:
     - name: Codecov
       uses: codecov/codecov-action@v4.5.0
       with:
+        token: ${{ secrets.codecov-token }}
         # Comma-separated list of files to upload
-        files: ./coverage/lcov.info
+        files: ./coverage/clover.xml
