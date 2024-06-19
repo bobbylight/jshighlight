@@ -16,8 +16,7 @@ npm run build   # Compiles source and builds the library into lib/
 npm run dev     # Runs a demo app and watches for changes
 ```
 
-The demo application will be hosted at
-[file://path/to/jshilight/demo/index.html](/path/to/jshilight/demo/index.html).
+The demo application will be hosted at [file://path/to/jshilight/demo/index.html]().
 
 To run tests:
 ```sh
