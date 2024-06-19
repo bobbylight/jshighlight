@@ -31,6 +31,6 @@ jobs:
     - name: Codecov
       uses: codecov/codecov-action@v4.5.0
       with:
-        token: ${{ secrets.codecov-token }}
+        token: ${{ secrets.CODECOV_TOKEN }}
         # Comma-separated list of files to upload
         files: ./coverage/clover.xml
